@@ -1,0 +1,41 @@
+.Characters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.Characters_card {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  border-radius: 8px;
+  overflow: hidden;
+  border-style: solid;
+}
+
+.Characters_card-dark {
+  background-color: rgb(51, 51, 51);
+  color: white;
+}
+
+.Characters_card-light {
+  background-color: rgb(243, 243, 243);
+  color: black;
+}
+
+.Characters_image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.Characters_description {
+  padding: 5px;
+}
+
+.Characters_description h3 {
+  margin: 0;
+  padding: 5px;
+}
