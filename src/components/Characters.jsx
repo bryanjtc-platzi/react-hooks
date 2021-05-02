@@ -1,6 +1,5 @@
 import React, {
   useState,
-  useEffect,
   useContext,
   useReducer,
   useMemo,
@@ -10,6 +9,7 @@ import React, {
 import "../styles/Characters.css";
 import ThemeContext from "../context/ThemeContext";
 import Search from "./Search";
+import useCharacters from "../hooks/useCharacters";
 
 const initialState = {
   favorites: [],
@@ -28,18 +28,15 @@ const favoriteReducer = (state, action) => {
 };
 
 const Characters = (props) => {
-  const [characters, setCharacters] = useState([]);
+  //const [characters, setCharacters] = useState([]);
   const color = useContext(ThemeContext);
   const [favorites, dispatch] = useReducer(favoriteReducer, initialState);
   const [search, setSearch] = useState("");
   const searchInput = useRef(null);
   const [disabled, setDisabled] = useState([]);
   const [nextPage, setNextPage] = useState(1);
-  useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/?page=${nextPage}`)
-      .then((response) => response.json())
-      .then((data) => setCharacters(data.results));
-  }, [nextPage]);
+  const API = `https://rickandmortyapi.com/api/character/?page=${nextPage}`;
+  const characters = useCharacters(API);
 
   const handleClick = (favorite) => {
     dispatch({ type: "ADD_TO_FAVORITE", payload: favorite });
