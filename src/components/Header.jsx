@@ -1,13 +1,16 @@
 import "../styles/Header.css";
+import React, { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
 
 const Header = (props) => {
-  const { darkMode, onClick, mode } = props;
+  const { darkMode, onClick } = props;
+  const color = useContext(ThemeContext);
 
   return (
-    <div className="Header">
+    <div className={`Header Header-${color}`}>
       <h1>ReactHooks</h1>
       <button
-        className={`Header_button Header_button-${mode}`}
+        className={`App_button App_button-${color}`}
         type="button"
         onClick={onClick}
       >

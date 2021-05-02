@@ -1,27 +1,18 @@
-.Header_button {
-  border-radius: 8px;
-  border-style: solid;
-  border-width: 3px;
-  cursor: pointer;
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 25px;
 }
 
-.Header_button:hover {
-  opacity: 0.5;
-}
-
-.Header_button-light {
+.Header-light {
   background-color: rgb(243, 243, 243);
-  border-color: black;
-  color: black;
 }
 
-.Header_button-dark {
+.Header-dark {
   background-color: rgb(51, 51, 51);
-  border-color: white;
-  color: white;
 }
 
-.Header_button h2 {
-  margin: 0;
-  padding: 10px;
+.Header > h1 {
+  margin-left: 25px;
 }
