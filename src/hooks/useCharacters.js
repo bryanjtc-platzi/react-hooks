@@ -3,9 +3,13 @@ import { useState, useEffect } from "react";
 const useCharacters = (url) => {
   const [characters, setCharacters] = useState([]);
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setCharacters(data.results));
+    try {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => setCharacters(data.results));
+    } catch (err) {
+      console.log(err);
+    }
   }, [url]);
   return characters;
 };
